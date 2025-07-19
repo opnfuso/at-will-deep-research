@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Golden Age to At-Will: The Erosion of Worker Protections in America</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <style>
+    .font-serif {
+      font-family: 'Crimson Text', serif;
+    }
+
+    .font-sans {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Citation styles */
+    .citation {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom-color 0.2s;
+      word-break: break-word;
+    }
+
+    .citation:hover {
+      border-bottom-color: #3b82f6;
+    }
+
+    /* Fixed TOC styles */
+    .toc-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      overflow-y: auto;
+      background: white;
+      border-right: 1px solid #e2e8f0;
+      z-index: 1000;
+      padding: 1.5rem;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-content {
+      margin-left: 280px;
+      min-height: 100vh;
+    }
+
+    /* TOC link styles */
+    .toc-link {
+      display: block;
+      padding: 0.5rem 0;
+      color: #64748b;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      padding-left: 1rem;
+      margin-left: -1rem;
+      transition: all 0.2s;
+      font-size: 0.875rem;
+      line-height: 1.4;
+    }
+
+    .toc-link:hover {
+      color: #1e40af;
+      border-left-color: #3b82f6;
+    }
+
+    .toc-link.active {
+      color: #1e40af;
+      font-weight: 600;
+      border-left-color: #3b82f6;
+    }
+
+    /* Overlay for mobile TOC */
+    #toc-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Hero image mask */
+    .hero-mask {
+      background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+    }
+
+    /* Bento grid layout */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+      height: 400px;
+    }
+
+    .bento-main {
+      grid-row: 1 / 3;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+
+    .bento-side-1 {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .bento-side-2 {
+      background: #1e40af;
+      border-radius: 1rem;
+      padding: 2rem;
+      color: white;
+    }
+
+    /* Mermaid diagram styles */
+    .mermaid-container {
+      display: flex;
+      justify-content: center;
+      min-height: 300px;
+      max-height: 800px;
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mermaid-container .mermaid {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      cursor: grab;
+      transition: transform 0.3s ease;
+      transform-origin: center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      touch-action: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .mermaid-container .mermaid svg {
+      max-width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .mermaid-container .mermaid:active {
+      cursor: grabbing;
+    }
+
+    .mermaid-container.zoomed .mermaid {
+      height: 100%;
+      width: 100%;
+      cursor: grab;
+    }
+
+    .mermaid-controls {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .mermaid-control-btn {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #374151;
+      font-size: 14px;
+      min-width: 36px;
+      height: 36px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mermaid-control-btn:hover {
+      background: #f8fafc;
+      border-color: #3b82f6;
+      color: #3b82f6;
+      transform: translateY(-1px);
+    }
+
+    .mermaid-control-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Enhanced mermaid diagram styles for better contrast and unified design */
+    .mermaid {
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    .mermaid .node rect {
+      fill: #1e40af !important;
+      stroke: #1e3a8a !important;
+      stroke-width: 2px !important;
+    }
+
+    .mermaid .node circle {
+      fill: #3b82f6 !important;
+      stroke: #1e40af !important;
+      stroke-width: 2px !important;
+    }
+
+    .mermaid .node polygon {
+      fill: #f59e0b !important;
+      stroke: #d97706 !important;
+      stroke-width: 2px !important;
+    }
+
+    .mermaid .node .label {
+      color: white !important;
+      font-weight: 600 !important;
+      font-size: 13px !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .mermaid .edgePath .path {
+      stroke: #64748b !important;
+      stroke-width: 2px !important;
+      fill: none !important;
+    }
+
+    .mermaid .arrowheadPath {
+      fill: #64748b !important;
+      stroke: #64748b !important;
+    }
+
+    .mermaid .edgeLabel {
+      background-color: white !important;
+      color: #374151 !important;
+      font-weight: 500 !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 4px !important;
+      padding: 2px 6px !important;
+      font-size: 12px !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .toc-fixed {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+      }
+
+      .toc-fixed.open {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      #toc-overlay.active {
+        display: block;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;
+      }
+
+      .bento-main {
+        grid-row: 1;
+        height: 300px;
+      }
+
+      /* Responsive mermaid controls */
+      .mermaid-control-btn:not(.reset-zoom) {
+        display: none;
+      }
+
+      .mermaid-controls {
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bento-main {
+        height: 250px;
+      }
+
+      .hero-mask h1 {
+        font-size: 2.25rem;
+        line-height: 1.2;
+      }
+
+      .hero-mask p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .px-8 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- Overlay for mobile TOC -->
+  <div id="toc-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+
+  <!-- Mobile TOC Toggle -->
+  <button class="lg:hidden fixed top-4 left-4 z-50 bg-white shadow-lg rounded-lg p-3 border" onclick="toggleTOC()">
+    <i class="fas fa-bars text-gray-600"></i>
+  </button>
+
+  <!-- Fixed Table of Contents -->
+  <nav class="toc-fixed">
+    <h3 class="font-serif text-lg font-semibold text-gray-900 mb-4">Contents</h3>
+    <a href="#introduction" class="toc-link">Introduction</a>
+    <a href="#golden-age" class="toc-link">1. The &#34;Golden Age&#34; of Worker Protections</a>
+    <a href="#new-deal" class="toc-link">1.1 The New Deal&#39;s Labor Legislation</a>
+    <a href="#union-strength" class="toc-link">1.2 Union Strength and Coverage</a>
+    <a href="#just-cause" class="toc-link">1.3 The Prevailing Norm of &#34;Just-Cause&#34;</a>
+    <a href="#judicial-imposition" class="toc-link">2. Judicial Imposition of At-Will</a>
+    <a href="#nineteenth-century" class="toc-link">2.1 19th-Century Origins</a>
+    <a href="#lochner-era" class="toc-link">2.2 The Lochner Era</a>
+    <a href="#legislative-retreat" class="toc-link">3. Legislative Retreat</a>
+    <a href="#taft-hartley" class="toc-link">3.1 The Taft-Hartley Act</a>
+    <a href="#union-decline" class="toc-link">3.2 Decline of Union Density</a>
+    <a href="#excluded-workers" class="toc-link">3.3 Exclusion of Key Workers</a>
+    <a href="#failed-legislation" class="toc-link">3.4 Failure of Unjust Dismissal Laws</a>
+    <a href="#neoliberal-shifts" class="toc-link">4. Neoliberal &amp; Court-Driven Changes</a>
+    <a href="#employer-strategies" class="toc-link">4.1 Employer Strategies</a>
+    <a href="#supreme-court" class="toc-link">4.2 Supreme Court Decisions</a>
+    <a href="#arbitration-proliferation" class="toc-link">4.3 Mandatory Arbitration</a>
+    <a href="#current-landscape" class="toc-link">5. Current Landscape</a>
+    <a href="#prevalence" class="toc-link">5.1 Prevalence of At-Will</a>
+    <a href="#international-comparison" class="toc-link">5.2 International Comparison</a>
+    <a href="#explanatory-narrative" class="toc-link">6. Explanatory Narrative</a>
+    <a href="#internal-divisions" class="toc-link">6.1 Internal Divisions</a>
+    <a href="#southern-politics" class="toc-link">6.2 Southern Politics</a>
+    <a href="#business-mobilization" class="toc-link">6.3 Business Mobilization</a>
+    <a href="#freedom-contract" class="toc-link">6.4 &#34;Freedom of Contract&#34;</a>
+    <a href="#missed-opportunities" class="toc-link">6.5 Missed Opportunities</a>
+    <a href="#policy-recommendations" class="toc-link">7. Policy Recommendations</a>
+    <a href="#just-cause-legislation" class="toc-link">7.1 Federal Just-Cause</a>
+    <a href="#arbitration-reform" class="toc-link">7.2 Arbitration Reform</a>
+    <a href="#expanding-coverage" class="toc-link">7.3 Expanding Coverage</a>
+    <a href="#international-standards" class="toc-link">7.4 International Standards</a>
+    <a href="#sources" class="toc-link">8. Sources and Evidence</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Hero Section with Bento Layout -->
+    <section class="relative bg-white">
+      <div class="container mx-auto px-8 py-12">
+        <div class="bento-grid">
+          <!-- Main hero content -->
+          <div class="bento-main">
+            <img src="https://kimi-web-img.moonshot.cn/img/media.npr.org/8aae571b708c524f384d71dd229518399e1ba883.jpg"
+              alt="Vintage black and white photograph of American factory workers" class="w-full h-full object-cover"
+              size="large" aspect="wide" color="bw" style="photo" query="1950s American factory workers black and white"
+              referrerpolicy="no-referrer" data-modified="1" data-score="11590.00" />
+            <div class="hero-mask absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white px-8">
+                <h1 class="font-serif text-5xl font-bold italic mb-4 leading-tight">
+                  From Golden Age to At-Will
+                </h1>
+                <p class="text-xl font-light opacity-90 max-w-2xl">
+                  The Judicial and Legislative Erosion of American Worker Protections
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side panel 1 -->
+          <div class="bento-side-1">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-chart-line text-blue-600 text-xl mr-3"></i>
+              <h3 class="font-semibold text-gray-900">Union Density Decline</h3>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Private-sector union density plummeted from 35% in the mid-1950s to just 6% today, eroding just-cause
+              protections for millions of workers.
+            </p>
+          </div>
+
+          <!-- Side panel 2 -->
+          <div class="bento-side-2">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-globe text-white opacity-80 text-xl mr-3"></i>
+              <h3 class="font-semibold">Global Outlier</h3>
+            </div>
+            <p class="text-sm opacity-90 leading-relaxed">
+              The U.S. ranks 32nd out of 38 OECD countries in labor protections, standing alone as the only developed
+              nation without mandated paid family leave.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="introduction" class="bg-white py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl leading-relaxed text-gray-700 mb-8 font-serif italic">
+            The United States transitioned from a mid-20th-century &#34;golden age&#34; of worker protections to
+            today&#39;s near-universal &#34;at-will&#34; employment regime due to a confluence of factors. These include
+            the judicial imposition of at-will employment in the late 19th century, reinforced by Lochner-era Supreme
+            Court decisions prioritizing &#34;freedom of contract.&#34; Subsequent legislative retreats, notably the
+            Taft-Hartley Act of 1947, weakened unions and codified at-will employment. The exclusion of key worker
+            groups from labor laws further fragmented worker power. In the neoliberal era, employer strategies like
+            union avoidance and offshoring, coupled with court decisions mandating arbitration and upholding class
+            action waivers, significantly eroded collective bargaining and legal recourse, solidifying the at-will
+            regime.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Golden Age -->
+    <section id="golden-age" class="bg-gray-50 py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">1. The &#34;Golden Age&#34; of Worker Protections
+          (1930s-1950s)</h2>
+
+        <div id="new-deal" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">1.1 The New Deal&#39;s Labor Legislation: A
+            Foundation for Worker Rights</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <img
+              src="https://kimi-web-img.moonshot.cn/img/constitutionallawreporter.com/493d2f8059ece2651d77ec1b80f75c10046d614d.jpg"
+              alt="President Franklin D. Roosevelt signing the Wagner Act in 1935"
+              class="w-full h-64 object-cover rounded-lg mb-4" size="medium" aspect="wide" color="bw" style="photo"
+              query="Roosevelt signing Wagner Act 1935" referrerpolicy="no-referrer" data-modified="1"
+              data-score="11599.00" />
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The 1930s witnessed a seismic shift in American labor relations, largely driven by the economic
+              devastation of the Great Depression and the subsequent legislative agenda of President Franklin D.
+              Roosevelt&#39;s New Deal. A cornerstone of this era was the <a
+                href="https://workerorganizing.org/wagner-act-national-labor-relations-act-right-to-unionize-6700/"
+                class="citation">National Labor Relations Act (NLRA) of 1935</a>, more commonly known as the Wagner Act.
+              This landmark legislation fundamentally altered the balance of power between employers and employees by
+              explicitly guaranteeing private-sector workers the right to self-organization, to form, join, or assist
+              labor organizations, to bargain collectively through representatives of their own choosing, and to engage
+              in concerted activities for the purpose of collective bargaining or other mutual aid and protection.
+            </p>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The Wagner Act was a direct response to widespread employer abuses, including spying on, interrogating,
+              disciplining, discharging, and blacklisting union members, practices that had been rampant before its
+              passage. To enforce these rights, the Act established the <a
+                href="https://www.archives.gov/milestone-documents/national-labor-relations-act"
+                class="citation">National Labor Relations Board (NLRB)</a>, an independent federal agency tasked with
+              mediating labor disputes, guaranteeing democratic union elections, and penalizing unfair labor practices
+              by employers.
+            </p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
+              <p class="text-blue-800 italic">
+                &#34;However, it is crucial to note that the Wagner Act&#39;s protections were not universal; it
+                specifically excluded agricultural laborers, domestic workers, and government employees, a significant
+                omission that disproportionately affected African American and female workers and fragmented potential
+                worker solidarity.&#34;
+              </p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Alongside the Wagner Act, other significant New Deal legislation laid the groundwork for enhanced worker
+              protections and economic security. The <a href="https://www.dol.gov/general/aboutdol/history/dolchp03"
+                class="citation">Social Security Act of 1935</a>, championed by Labor Secretary Frances Perkins, was a
+              monumental achievement that provided a social safety net previously absent in the United States. The <a
+                href="https://www.dol.gov/agencies/whd/compliance-assistance/handy-reference-guide-flsa"
+                class="citation">Fair Labor Standards Act (FLSA) of 1938</a> further solidified worker protections by
+              establishing a federal minimum wage, mandating overtime pay for hours worked beyond 40 in a workweek for
+              covered employees, and placing stringent restrictions on child labor.
+            </p>
+          </div>
+        </div>
+
+        <div id="union-strength" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">1.2 Union Strength and Collective Bargaining
+            Coverage</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The passage of the Wagner Act in 1935 provided a powerful impetus for the growth of labor unions in the
+              United States. Workers, emboldened by federal support, engaged in widespread organizing drives and
+              strikes, leading to a significant increase in union density, particularly in the industrial sector. <a
+                href="https://www.nber.org/system/files/chapters/c1707/c1707.pdf" class="citation">Data from the
+                National Bureau of Economic Research</a> shows a dramatic rise in union membership from 3.4 million in
+              1930 to over 14.5 million by 1947, with the most significant growth occurring in the late 1930s and during
+              World War II.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-2">Peak Union Density</h4>
+                <p class="text-blue-800 text-3xl font-bold">35%</p>
+                <p class="text-blue-700 text-sm">of non-agricultural workforce in mid-1950s</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-2">ILGWU Growth</h4>
+                <p class="text-gray-800 text-3xl font-bold">4x</p>
+                <p class="text-gray-700 text-sm">Membership quadrupled in a single year (1934)</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The expansion of union membership directly translated into broader coverage by collective bargaining
+              agreements. The <a href="https://livingnewdeal.org/a-new-deal-for-labor/" class="citation">&#34;Treaty of
+                Detroit&#34; in 1950</a> between the United Auto Workers (UAW) and General Motors is a prime example of
+              the comprehensive agreements reached during this era, providing substantial wage increases, cost-of-living
+              adjustments, pension benefits, and health insurance, effectively establishing a model for other
+              industries.
+            </p>
+          </div>
+        </div>
+
+        <div id="just-cause" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">1.3 The Prevailing Norm of
+            &#34;Just-Cause&#34; Dismissal</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              A critical component of the enhanced worker protections during the mid-20th-century &#34;golden age&#34;
+              was the widespread establishment of the <a
+                href="https://poweratwork.us/every-worker-just-cause-protections" class="citation">&#34;just-cause&#34;
+                standard for dismissal</a> in unionized workplaces. Unlike the &#34;at-will&#34; employment doctrine,
+              which allows employers to terminate employees for any reason or no reason, the just-cause standard
+              requires employers to have a legitimate, provable reason for disciplining or discharging an employee.
+            </p>
+
+            <div class="bg-amber-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-amber-900 mb-4">Carroll Daugherty&#39;s Seven Tests of Just Cause (1966)
+              </h4>
+              <ol class="list-decimal list-inside space-y-2 text-amber-800">
+                <li><strong>Notice:</strong> Was the employee forewarned of the consequences?</li>
+                <li><strong>Reasonable Rule:</strong> Was the employer&#39;s rule reasonably related to operations?</li>
+                <li><strong>Investigation:</strong> Did management investigate before disciplining?</li>
+                <li><strong>Fair Investigation:</strong> Was the investigation fair and objective?</li>
+                <li><strong>Proof:</strong> Did the investigation produce substantial evidence?</li>
+                <li><strong>Non-Discriminatory:</strong> Were rules applied fairly without discrimination?</li>
+                <li><strong>Appropriate Penalty:</strong> Was the discipline reasonably related to the offense?</li>
+              </ol>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The concept of just cause became a well-established principle in labor arbitration, the primary means of
+              resolving disputes over the interpretation and application of collective bargaining agreements. These
+              tests ensured that discipline was not only based on legitimate grounds but also administered in a
+              procedurally fair manner, representing a significant departure from the prevailing at-will doctrine and
+              contributing to a sense of fairness and due process for a substantial segment of the American workforce
+              during this period.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Judicial Imposition -->
+    <section id="judicial-imposition" class="bg-white py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">2. The Judicial Imposition and Entrenchment of
+          At-Will Employment</h2>
+
+        <div id="nineteenth-century" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">2.1 The 19th-Century Origins and
+            Reconstruction-Era Judicial Activism</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The doctrine of <strong>at-will employment</strong>, which allows employers to terminate employees for any
+              reason or no reason at all, was <strong>not a product of democratic legislative deliberation but rather a
+                judicial invention</strong> that emerged in the late 19th century. Legal scholars widely attribute the
+              formal articulation of the at-will rule to <a href="http://www.rbs2.com/atwill.htm"
+                class="citation">Horace G. Wood&#39;s 1877 treatise, <em>Master and Servant</em></a>, where he stated
+              that &#34;a general or indefinite hiring is prima facie a hiring at will.&#34;
+            </p>
+
+            <div class="bg-red-50 border-l-4 border-red-400 p-4 my-6">
+              <p class="text-red-800 italic">
+                &#34;Remarkably, subsequent analyses have shown that Wood&#39;s pronouncement was not well-supported by
+                the case law he cited, leading many to conclude that he essentially invented the rule and presented it
+                as established law.&#34;
+              </p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The entrenchment of the at-will doctrine was significantly influenced by judicial interpretations
+              following the passage of the <a href="https://www.archives.gov/milestone-documents/13th-amendment"
+                class="citation">Thirteenth Amendment in 1865</a>, which abolished slavery and involuntary servitude.
+              Proponents of the at-will rule ingeniously co-opted the Amendment&#39;s guarantee of a <a
+                href="https://www.nelp.org/cities-are-working-to-end-another-legacy-of-slavery-at-will-employment/"
+                class="citation">&#34;right to quit&#34; for workers</a>, arguing that if workers possessed the
+              fundamental right to terminate their employment at will, then a reciprocal &#34;right to fire&#34; at will
+              must also exist for employers.
+            </p>
+
+            <p class="text-gray-700 leading-relaxed">
+              This argument represented a significant distortion of Congressional intent during Reconstruction, as there
+              is no evidence that lawmakers intended the anti-subordination protections of the Thirteenth Amendment to
+              confer upon employers an unbridled right to discharge workers without cause. This judicial activism
+              effectively embedded a system of employer control that had <strong>racialized dimensions</strong>,
+              particularly as employers sought new methods to manage labor, including formerly enslaved Black people and
+              immigrant workers, in the post-slavery economy.
+            </p>
+          </div>
+        </div>
+
+        <div id="lochner-era" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">2.2 The Lochner Era: &#34;Freedom of
+            Contract&#34; and Employer Prerogatives</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <img
+              src="https://kimi-web-img.moonshot.cn/img/cdn.britannica.com/024fb1f4b96b0083e1378c8255825f6aae92e575.jpg"
+              alt="Portrait of Justice Rufus Peckham, Supreme Court" class="w-full h-48 object-cover rounded-lg mb-4"
+              size="medium" aspect="wide" color="bw" style="photo" query="Justice Rufus Peckham Supreme Court portrait"
+              referrerpolicy="no-referrer" data-modified="1" data-score="11595.00" />
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The at-will employment doctrine found fertile ground for further entrenchment during the <a
+                href="https://www.law.cornell.edu/wex/lochner_era" class="citation">&#34;Lochner era,&#34;</a> a period
+              spanning roughly from the late 19th century until the mid-1930s, characterized by the U.S. Supreme
+              Court&#39;s vigorous application of &#34;freedom of contract&#34; principles to strike down labor
+              regulations. This era takes its name from the landmark 1905 case, <em>Lochner v. New York</em>, in which
+              the Supreme Court invalidated a New York state law limiting the working hours of bakers to sixty per week.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-white p-4 rounded-lg border">
+                <h4 class="font-semibold text-gray-900 mb-2">Adair v. United States (1908)</h4>
+                <p class="text-gray-700 text-sm">Struck down law prohibiting &#34;yellow-dog contracts,&#34; reinforcing
+                  employer&#39;s right to fire for union activity</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border">
+                <h4 class="font-semibold text-gray-900 mb-2">Coppage v. Kansas (1915)</h4>
+                <p class="text-gray-700 text-sm">Invalidated state law against anti-union contracts, upholding
+                  &#34;freedom of contract&#34; over worker rights</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              In <a href="https://www.numberanalytics.com/blog/adair-v-united-states-economic-liberties"
+                class="citation"><em>Adair v. United States</em></a> and <a
+                href="https://en.wikisource.org/wiki/Coppage_v._Kansas" class="citation"><em>Coppage v. Kansas</em></a>,
+              the Supreme Court directly reinforced the at-will employment doctrine and employer prerogatives,
+              particularly in the context of labor organizing. These decisions constitutionalized the employer&#39;s
+              right to fire workers for engaging in collective activity, severely hampering union organizing efforts and
+              establishing that employers and employees bargained as equals—a notion often at odds with economic
+              realities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Legislative Retreat -->
+    <section id="legislative-retreat" class="bg-gray-50 py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">3. Legislative Retreat and the Weakening of
+          Collective Power (1947-1980s)</h2>
+
+        <div id="taft-hartley" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">3.1 The Taft-Hartley Act and the Rise of
+            &#34;Right-to-Work&#34; Laws</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The <a
+                href="https://www.votelabor.org/publications/what-did-the-taft-hartley-act-do-to-unions-and-why-has-sucked-since-1947"
+                class="citation">Labor Management Relations Act of 1947</a>, commonly known as the <strong>Taft-Hartley
+                Act</strong>, marked a pivotal moment in U.S. labor history, representing a significant legislative
+              retreat from the pro-union policies of the New Deal era and a major step towards entrenching employer
+              power. Enacted over President Harry Truman&#39;s veto, the Act was a direct response by business-friendly
+              lawmakers to the growing strength and perceived excesses of labor unions in the immediate post-World War
+              II period.
+            </p>
+
+            <div class="bg-red-100 border-l-4 border-red-500 p-4 my-6">
+              <p class="text-red-900 font-semibold mb-2">President Truman&#39;s Veto Message:</p>
+              <p class="text-red-800 italic">&#34;This bill would conflict with important principles of our democratic
+                society. It would go far toward weakening our trade union movement. And it contains seeds of discord
+                which would plague this Nation for years to come.&#34;</p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Among its many provisions, <a href="https://nrtwc.org/faqs-what-is-14b/" class="citation">Section 14(b) of
+                the Taft-Hartley Act</a> had the most profound and lasting impact on union strength by
+              <strong>empowering states to pass &#34;right-to-work&#34; laws</strong>. These laws allow states to
+              prohibit agreements between unions and employers that make union membership or the payment of union dues a
+              condition of employment, even in workplaces where a majority of employees have voted for union
+              representation.
+            </p>
+
+            <div class="bg-blue-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-blue-900 mb-3">Key Provisions of Taft-Hartley</h4>
+              <ul class="list-disc list-inside space-y-2 text-blue-800">
+                <li>Section 14(b): Enabled state &#34;right-to-work&#34; laws</li>
+                <li>Section 2(5): Defined employees as &#34;at-will servants&#34;</li>
+                <li>Outlawed secondary boycotts and jurisdictional strikes</li>
+                <li>Introduced &#34;free speech clause&#34; for employers</li>
+                <li>Required union leaders to disclaim communist affiliation</li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Research by Kevin Rinz analyzing the initial adoption of RTW laws following Taft-Hartley found that <a
+                href="https://kevinrinz.github.io/rtw.pdf" class="citation">wage growth in highly unionized industries
+                was 10.9% lower in the initial RTW states</a> compared to states without such laws, demonstrating the
+              immediate economic impact of these provisions on worker earnings.
+            </p>
+          </div>
+        </div>
+
+        <div id="union-decline" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">3.2 The Decline of Union Density and
+            Bargaining Power</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-6">
+              The passage of the Taft-Hartley Act in 1947 marked the beginning of a <strong>sustained decline in union
+                density and bargaining power</strong> in the United States. While <a
+                href="https://fedsoc.org/commentary/fedsoc-blog/the-accidental-success-of-the-nlra-how-a-law-about-unions-achieved-its-goals-by-giving-us-fewer-unions"
+                class="citation">union membership in the private sector peaked at around 35% of nonagricultural workers
+                in the mid-1950s</a>, it has since plummeted to historically low levels of just 6% today.
+            </p>
+
+            <div class="bg-gray-100 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-gray-900 mb-4">Union Decline Timeline</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">1950s: Peak union density</span>
+                  <span class="font-bold text-blue-600">~35%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Early 1980s</span>
+                  <span class="font-bold text-orange-600">~21%</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">2020s</span>
+                  <span class="font-bold text-red-600">6%</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The <a href="https://www.epi.org/unequalpower/publications/private-sector-unions-corporate-legal-erosion/"
+                class="citation">Economic Policy Institute (EPI) highlights that the 1970s were a critical turning
+                point</a>, during which new unionization efforts dramatically faltered. In the 1950s and 1960s, over 1%
+              of the employed population participated in an NLRB election each year. This figure dropped to 0.78% in the
+              1970s and further to 0.29% in the 1980s.
+            </p>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
+              <p class="text-yellow-800">
+                <strong>Crucial Statistic:</strong> By 1977, workers were losing more than half of NLRB representation
+                elections, a dramatic shift from the 1940s when they won approximately 80% of these contests. Even when
+                workers successfully voted for a union, their ability to secure a first contract declined from 86% in
+                the 1950s to just 56% by the 1990s.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="excluded-workers" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">3.3 The Exclusion of Farm, Domestic, and
+            Public Sector Workers from Key Protections</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The <a href="https://www.britannica.com/topic/Wagner-Act" class="citation">National Labor Relations Act
+                (NLRA)</a> was a landmark piece of New Deal legislation enacted in 1935 with the primary purpose of
+              establishing the legal right of most workers to organize into labor unions. However, from its inception,
+              the statute <strong>explicitly excluded several categories of workers</strong>, including agricultural
+              laborers, domestic workers, public employees, supervisors, and independent contractors.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-red-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-red-900 mb-3">Excluded Workers</h4>
+                <ul class="list-disc list-inside space-y-1 text-red-800 text-sm">
+                  <li>Agricultural laborers</li>
+                  <li>Domestic workers</li>
+                  <li>Public employees</li>
+                  <li>Supervisors</li>
+                  <li>Independent contractors</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-3">Impact</h4>
+                <ul class="list-disc list-inside space-y-1 text-blue-800 text-sm">
+                  <li>Disproportionately affected African American workers</li>
+                  <li>Fragmented worker solidarity</li>
+                  <li>Created two-tiered labor system</li>
+                  <li>Weakened overall labor movement</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The <a
+                href="https://www.cambridge.org/core/journals/studies-in-american-political-development/article/delineating-agriculture-and-industry-reexamining-the-exclusion-of-agricultural-workers-from-the-new-deal/6928E5E37CB10E1B48AF3ACA96757E50"
+                class="citation">exclusion of agricultural and domestic workers from the NLRA was a critical
+                decision</a> that left a substantial portion of the American workforce without federal protections for
+              organizing and collective bargaining. At the time of the Act&#39;s passage, these sectors employed a
+              significant number of African American workers, particularly in the South.
+            </p>
+
+            <p class="text-gray-700 leading-relaxed">
+              The consequences of these exclusions were far-reaching. By omitting large segments of the workforce, the
+              Wagner Act effectively <strong>fragmented the labor movement from its inception</strong>. It created a
+              two-tiered system of labor rights, where industrial workers gained significant protections and bargaining
+              power, while agricultural and domestic workers were largely left to fend for themselves. This division
+              weakened the overall political and economic power of the labor movement, as a united front including these
+              sectors could have been a more formidable force.
+            </p>
+          </div>
+        </div>
+
+        <div id="failed-legislation" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">3.4 The Failure to Enact Federal Unjust
+            Dismissal Legislation</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The period following the &#34;golden age&#34; of labor saw a significant decline in union density and
+              bargaining power in the United States. As union protections waned, the default rule of at-will employment
+              became increasingly dominant. In this context, the <strong>absence of a federal unjust dismissal statute,
+                or &#34;just cause&#34; protection for all workers, became a glaring gap in U.S. labor law</strong>.
+            </p>
+
+            <div class="bg-amber-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-amber-900 mb-3">Missed Legislative Opportunities</h4>
+              <ul class="list-disc list-inside space-y-2 text-amber-800">
+                <li><strong>1978 Labor Law Reform Act:</strong> Failed to overcome Senate filibuster despite
+                  considerable support</li>
+                <li><strong>1993-94 Striker Replacement Bills:</strong> Failed to pass legislation prohibiting permanent
+                  replacement of striking workers</li>
+                <li><strong>PRO Act (2020-21):</strong> Passed House but repeatedly stalled in Senate</li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Efforts to enact federal legislation providing broader protection against unjust dismissal have been made
+              over the years, but <strong>none have succeeded in becoming law</strong>. These initiatives have
+              consistently faced strong opposition from business groups who argue that such laws would impose undue
+              burdens on employers, stifle economic growth, and interfere with managerial prerogatives. The lack of a
+              federal unjust dismissal statute has left workers in most states reliant on a patchwork of common law
+              exceptions to the at-will rule, which are often narrowly interpreted and difficult to enforce.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Neoliberal Shifts -->
+    <section id="neoliberal-shifts" class="bg-white py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">4. Neoliberal Shifts and Court-Driven Erosion of
+          Rights (1970s-2000s)</h2>
+
+        <div id="employer-strategies" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">4.1 Employer Strategies: Union Avoidance,
+            Offshoring, and Fissured Work</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The latter decades of the 20th century witnessed a significant transformation in the American labor
+              landscape, characterized by a pronounced shift towards neoliberal economic policies and aggressive
+              employer strategies aimed at circumventing unionization and reducing labor costs. Employers increasingly
+              adopted sophisticated <strong>&#34;union avoidance&#34; consulting services</strong>, which specialized in
+              tactics to dissuade workers from organizing or to defeat union certification drives.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+              <div class="bg-white p-4 rounded-lg border">
+                <h4 class="font-semibold text-gray-900 mb-2">Union Avoidance</h4>
+                <p class="text-gray-700 text-sm">Captive audience meetings, one-on-one supervisor meetings, anti-union
+                  propaganda</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border">
+                <h4 class="font-semibold text-gray-900 mb-2">Offshoring</h4>
+                <p class="text-gray-700 text-sm">Relocating production to regions with lower labor costs and weaker
+                  protections</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border">
+                <h4 class="font-semibold text-gray-900 mb-2">Fissured Work</h4>
+                <p class="text-gray-700 text-sm">Subcontracting, franchising, temporary staffing to shed employment
+                  responsibilities</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Another critical development was the rise of <strong>&#34;fissured work&#34; arrangements</strong>, where
+              companies increasingly relied on subcontracting, franchising, and the use of temporary staffing agencies
+              to perform work previously done by direct employees. This strategy allowed lead companies to shed direct
+              employment responsibilities, including providing benefits, adhering to labor standards, and facing
+              potential unionization drives. Workers in these fissured arrangements often faced precarious employment,
+              lower wages, and a lack of clear lines of accountability.
+            </p>
+          </div>
+        </div>
+
+        <div id="supreme-court" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">4.2 Supreme Court Decisions: Mandatory
+            Arbitration and Class Action Waivers</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <img
+              src="https://kimi-web-img.moonshot.cn/img/files.structurae.net/6e967646864e271ab69955ed02f29fd197cbdf6b.jpg"
+              alt="US Supreme Court building exterior" class="w-full h-48 object-cover rounded-lg mb-4" size="medium"
+              aspect="wide" style="photo" query="US Supreme Court building exterior" referrerpolicy="no-referrer"
+              data-modified="1" data-score="11583.00" />
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The period from the 1970s through the 2000s witnessed a significant judicial shift that further eroded
+              workers&#39; abilities to challenge unfair labor practices and employment conditions, particularly through
+              the expansion of mandatory arbitration agreements and the enforcement of class action waivers. Key Supreme
+              Court decisions played a pivotal role in this transformation, effectively closing the courthouse doors to
+              many workers.
+            </p>
+
+            <div class="bg-blue-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-blue-900 mb-4">Landmark Supreme Court Cases</h4>
+              <div class="space-y-3">
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h5 class="font-semibold text-blue-800">Gilmer v. Interstate/Johnson Lane Corp. (1991)</h5>
+                  <p class="text-blue-700 text-sm">Held that employees could be compelled to arbitrate age
+                    discrimination claims based on employment arbitration agreements</p>
+                </div>
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h5 class="font-semibold text-blue-800">Circuit City Stores, Inc. v. Adams (2001)</h5>
+                  <p class="text-blue-700 text-sm">Reaffirmed that the Federal Arbitration Act applied to most
+                    employment contracts</p>
+                </div>
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h5 class="font-semibold text-blue-800">Epic Systems Corp. v. Lewis (2018)</h5>
+                  <p class="text-blue-700 text-sm">Upheld arbitration agreements requiring individual arbitration and
+                    prohibiting class actions</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              In <a href="https://supreme.justia.com/cases/federal/us/500/20/" class="citation"><em>Epic Systems Corp.
+                  v. Lewis</em></a>, the Supreme Court, in a 5-4 decision, held that arbitration agreements requiring
+              employees to arbitrate their claims individually and prohibiting class or collective actions are
+              enforceable under the Federal Arbitration Act. This decision was a major victory for employers and a
+              significant blow to workers&#39; ability to band together to challenge systemic workplace issues, such as
+              widespread wage theft or discrimination.
+            </p>
+          </div>
+        </div>
+
+        <div id="arbitration-proliferation" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">4.3 The Proliferation of Mandatory
+            Arbitration Clauses and Non-Compete Agreements</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The Supreme Court&#39;s endorsement of mandatory arbitration in employment contracts has led to a
+              <strong>dramatic proliferation of such clauses in the American workplace</strong>. Employers, emboldened
+              by judicial backing, increasingly require employees to sign arbitration agreements as a condition of
+              employment, often burying these clauses in lengthy employment contracts that workers may not fully
+              understand.
+            </p>
+
+            <div class="bg-red-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-red-900 mb-3">Current Statistics</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p class="text-3xl font-bold text-red-600">55%+</p>
+                  <p class="text-red-800 text-sm">of non-union private sector employees bound by mandatory arbitration
+                  </p>
+                </div>
+                <div>
+                  <p class="text-3xl font-bold text-red-600">2x+</p>
+                  <p class="text-red-800 text-sm">increase from early 2000s (almost 25%)</p>
+                </div>
+              </div>
+              <p class="text-red-700 text-sm mt-2">
+                Source: <a href="https://www.nelp.org/insights-research/faq-on-mandatory-arbitration-in-employment/"
+                  class="citation">National Employment Law Project (NELP)</a>
+              </p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Alongside the rise of mandatory arbitration, there has been a significant increase in the use of
+              <strong>non-compete agreements</strong>, even for low-wage workers and in industries where trade secrets
+              are not a primary concern. The <a
+                href="https://www.epi.org/unequalpower/publications/the-legal-understanding-and-treatment-of-an-employment-relationship-versus-a-contract/"
+                class="citation">Economic Policy Institute (EPI) notes</a> that the presentation of a non-compete
+              agreement can be seen as a proposal to renegotiate the at-will relationship, often with little to no
+              additional consideration provided to the employee.
+            </p>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
+              <p class="text-yellow-800">
+                <strong>Recent Development:</strong> The Federal Trade Commission has recently proposed a rule to ban
+                most non-compete agreements, citing research that they negatively affect labor markets and <a
+                  href="https://www.wtwco.com/en-in/insights/2023/01/united-states-proposals-to-end-noncompete-clauses-in-the-us-at-will-employment-in-new-york-city"
+                  class="citation">reduce wages by nearly $300 billion annually</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Current Landscape -->
+    <section id="current-landscape" class="bg-gray-50 py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">5. The Current Landscape of U.S. Employment Law
+          (2020s)</h2>
+
+        <div id="prevalence" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">5.1 The Prevalence of At-Will Employment vs.
+            Just-Cause Protections</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-6">
+              In the 2020s, the <strong>at-will employment doctrine remains the default rule governing the vast majority
+                of employment relationships in the United States</strong>. This means that, absent a specific
+              contractual provision or statutory protection to the contrary, employers are generally free to terminate
+              employees for any reason—good, bad, or nonexistent—as long as the reason is not illegal.
+            </p>
+
+            <div class="bg-red-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-red-900 mb-4">Current At-Will Employment Coverage</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <p class="text-4xl font-bold text-red-600">74%+</p>
+                  <p class="text-red-800">of private-sector, non-unionized workers employed at-will</p>
+                </div>
+                <div>
+                  <p class="text-4xl font-bold text-red-600">6%</p>
+                  <p class="text-red-800">current private-sector union density</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              While some states recognize limited common law exceptions to at-will employment (e.g., public policy
+              exceptions, implied contract exceptions based on employee handbooks), these are often narrowly construed
+              by courts and provide far less comprehensive protection than a true &#34;just cause&#34; standard. The
+              continued prevalence of at-will employment means that most American workers lack robust job security and
+              can be dismissed without the employer needing to demonstrate a legitimate, performance-related reason or
+              follow fair procedures.
+            </p>
+          </div>
+        </div>
+
+        <div id="international-comparison" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">5.2 International Comparison: The U.S. as an
+            Outlier in Worker Protections</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <img
+              src="https://kimi-web-img.moonshot.cn/img/cdn-acn.watchity.net/f9b6d6866ffe3d3dda35b7adabaaa39089b0b6f8.jpeg"
+              alt="European labor court in session" class="w-full h-48 object-cover rounded-lg mb-4" size="medium"
+              aspect="wide" style="photo" query="European labor court session" referrerpolicy="no-referrer"
+              data-modified="1" data-score="11599.00" />
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The United States stands in stark contrast to most other developed nations, particularly its peers in the
+              Organisation for Economic Co-operation and Development (OECD), regarding the legal framework governing
+              employment termination. While many OECD countries mandate that employers must demonstrate &#34;just
+              cause&#34; for dismissing an employee, the U.S. largely adheres to the doctrine of &#34;at-will&#34;
+              employment.
+            </p>
+
+            <div class="bg-blue-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-blue-900 mb-4">Oxfam 2023 Labor-Protection Index Rankings</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-red-100 p-4 rounded-lg">
+                  <p class="text-center text-red-800 font-semibold">United States</p>
+                  <p class="text-center text-3xl font-bold text-red-600">32/38</p>
+                  <p class="text-center text-red-700 text-sm">Overall Rank</p>
+                </div>
+                <div class="bg-red-100 p-4 rounded-lg">
+                  <p class="text-center text-red-800 font-semibold">Worker Protections</p>
+                  <p class="text-center text-3xl font-bold text-red-600">38/38</p>
+                  <p class="text-center text-red-700 text-sm">Dead Last</p>
+                </div>
+                <div class="bg-red-100 p-4 rounded-lg">
+                  <p class="text-center text-red-800 font-semibold">Rights to Organize</p>
+                  <p class="text-center text-3xl font-bold text-red-600">32/38</p>
+                  <p class="text-center text-red-700 text-sm">Below Average</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The disparity in job security protections is further underscored by international rankings and indices.
+              The <a href="https://webassets.oxfamamerica.org/media/documents/Where_Hard_Work_Doesnt_Pay_Off.pdf"
+                class="citation">Oxfam 2023 labor-protection index ranked the United States 32nd out of 38 OECD
+                countries</a>, a position that reflects its relatively weak legal safeguards for workers. This ranking
+              suggests that the U.S. system offers significantly less protection against arbitrary dismissal compared to
+              the vast majority of its economic counterparts.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                <h4 class="font-semibold text-green-900 mb-3">European Just-Cause Systems</h4>
+                <ul class="list-disc list-inside space-y-1 text-green-800 text-sm">
+                  <li><strong>Germany:</strong> Protection Against Unfair Dismissal Act requires social justification
+                  </li>
+                  <li><strong>France:</strong> Indefinite-term contracts with strict dismissal procedures</li>
+                  <li><strong>UK:</strong> Employment Rights Act requires fair reason and procedure</li>
+                  <li><strong>Sweden:</strong> Employment Protection Act with &#34;last in, first out&#34; principle
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                <h4 class="font-semibold text-red-900 mb-3">U.S. At-Will System</h4>
+                <ul class="list-disc list-inside space-y-1 text-red-800 text-sm">
+                  <li>Termination for any reason (good, bad, or none)</li>
+                  <li>Limited statutory exceptions only</li>
+                  <li>No general requirement for justification</li>
+                  <li>Minimal procedural protections</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The European Union, through directives and the Charter of Fundamental Rights, promotes strong worker
+              protections. <strong>Article 30 of the Charter of Fundamental Rights of the European Union states,
+                &#34;Every worker has the right to protection against unjustified dismissal, in accordance with Union
+                law and national laws and practices&#34;</strong>. This contrasts with the U.S. approach, where federal
+              law provides minimal protection against unjust dismissal for most private-sector employees.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Explanatory Narrative -->
+    <section id="explanatory-narrative" class="bg-white py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">6. Explanatory Narrative: Factors Driving the
+          Transition to At-Will Employment</h2>
+
+        <div id="internal-divisions" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">6.1 Internal Divisions within the Labor
+            Movement</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The decline of union strength and the corresponding rise of at-will employment in the United States cannot
+              be fully understood without examining the <strong>internal divisions that have historically plagued the
+                labor movement</strong>. The <a
+                href="https://clje.law.harvard.edu/publication/building-worker-power-in-cities-states/workers-excluded-from-the-nlra/"
+                class="citation">exclusion of public sector workers from the National Labor Relations Act (NLRA)</a>
+              meant that their path to unionization and collective bargaining rights developed separately and often
+              later than that of private sector workers.
+            </p>
+
+            <div class="bg-blue-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-blue-900 mb-3">Structural Divisions in U.S. Labor Movement</h4>
+              <ul class="list-disc list-inside space-y-2 text-blue-800">
+                <li><strong>Public vs. Private Sector:</strong> Different legal frameworks and organizing challenges
+                </li>
+                <li><strong>Occupational Exclusions:</strong> Agricultural and domestic workers left unprotected</li>
+                <li><strong>Geographic Variation:</strong> State-by-state differences in labor laws</li>
+                <li><strong>Political Fragmentation:</strong> Divergent agendas and priorities</li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The <a href="https://nfwm.org/farm-workers/farm-worker-issues/labor-laws/" class="citation">historical
+                exclusion of agricultural and domestic workers from the NLRA also represents a profound internal
+                division</a>. By denying these predominantly Black and, later, Latino and immigrant workforces the basic
+              right to collective bargaining, the New Deal labor framework effectively created a two-tiered system of
+              labor rights. A movement divided along lines of industry, sector, race, or immigration status is
+              inherently less able to mount a cohesive defense of worker rights or to advocate effectively for policies
+              that would benefit all workers.
+            </p>
+          </div>
+        </div>
+
+        <div id="southern-politics" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">6.2 The Influence of Southern Segregationist
+            Politics and Anti-Communism</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The trajectory of U.S. labor law and the entrenchment of at-will employment were significantly shaped by
+              the <strong>powerful influence of Southern segregationist politics and the pervasive anti-communism of the
+                mid-20th century</strong>. Southern Democrats, who held considerable sway in Congress due to seniority
+              and the one-party &#34;Solid South,&#34; played a crucial role in shaping New Deal labor legislation, most
+              notably by ensuring the <a
+                href="https://www.cambridge.org/core/journals/studies-in-american-political-development/article/delineating-agriculture-and-industry-reexamining-the-exclusion-of-agricultural-workers-from-the-new-deal/6928E5E37CB10E1B48AF3ACA96757E50"
+                class="citation">exclusion of agricultural and domestic workers from the protections of the Wagner
+                Act</a>.
+            </p>
+
+            <div class="bg-red-50 border-l-4 border-red-400 p-4 my-6">
+              <p class="text-red-800 italic">
+                &#34;These exclusions were not accidental; they were a deliberate strategy to maintain a low-wage,
+                racially stratified labor system in the South, where a significant portion of African American workers
+                were employed in these sectors.&#34;
+              </p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The post-World War II era saw the rise of virulent anti-communism, which was skillfully wielded as a
+              weapon against the labor movement. The <a
+                href="https://www.votelabor.org/publications/what-did-the-taft-hartley-act-do-to-unions-and-why-has-sucked-since-1947"
+                class="citation">Taft-Hartley Act of 1947 included provisions requiring union leaders to file affidavits
+                disclaiming affiliation with the Communist Party</a>. This was a clear attempt to purge left-wing
+              influence from unions and to tarnish the image of organized labor as un-American. The combination of
+              Southern segregationist opposition to empowering Black workers and the national anti-communist crusade
+              created powerful headwinds against the labor movement.
+            </p>
+          </div>
+        </div>
+
+        <div id="business-mobilization" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">6.3 Business Mobilization and the Rise of
+            Employer-Side Legal Advocacy</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The erosion of worker protections and the ascendance of at-will employment were significantly propelled by
+              a <strong>concerted and well-funded mobilization by the business community</strong>, particularly from the
+              1970s onwards. A pivotal moment in this mobilization was the <strong>1971 &#34;Powell Memo&#34;</strong>
+              (officially titled &#34;Attack on American Free Enterprise System&#34;), written by future Supreme Court
+              Justice Lewis F. Powell Jr. for the U.S. Chamber of Commerce.
+            </p>
+
+            <div class="bg-yellow-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-yellow-900 mb-3">Key Elements of Business Mobilization</h4>
+              <ul class="list-disc list-inside space-y-2 text-yellow-800">
+                <li><strong>Legal Advocacy:</strong> Development of employer-side labor law expertise</li>
+                <li><strong>Union Avoidance:</strong> Sophisticated consulting services to prevent organizing</li>
+                <li><strong>Political Lobbying:</strong> Business associations influencing legislation</li>
+                <li><strong>Alternative Dispute Resolution:</strong> Promoting mandatory arbitration over court
+                  litigation</li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              A key component of this business mobilization was the <strong>strategic development and deployment of
+                employer-side legal advocacy</strong>. Law firms specializing in labor and employment law began to offer
+              sophisticated &#34;union avoidance&#34; consulting services, helping companies to prevent union organizing
+              drives or to decertify existing unions. The success of this legal strategy is evident in Supreme Court
+              decisions like <em>Gilmer</em> and <em>Epic Systems</em>, which upheld the enforceability of mandatory
+              arbitration clauses and class action waivers.
+            </p>
+          </div>
+        </div>
+
+        <div id="freedom-contract" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">6.4 The Enduring Impact of &#34;Freedom of
+            Contract&#34; Judicial Doctrine</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The judicial doctrine of <strong>&#34;freedom of contract,&#34;</strong> which gained prominence during
+              the Lochner era (roughly 1897-1937), has had an enduring and detrimental impact on efforts to establish
+              robust worker protections and to move away from the at-will employment regime in the United States. This
+              doctrine often presumes a <strong>mythical equality of bargaining power</strong> between individual
+              workers and corporate employers, ignoring the stark economic realities that give employers a dominant
+              position in the employment relationship.
+            </p>
+
+            <div class="bg-indigo-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-indigo-900 mb-3">Impact on Modern Employment Law</h4>
+              <ul class="list-disc list-inside space-y-2 text-indigo-800">
+                <li>Elevates contractual liberty over worker security concerns</li>
+                <li>Presumes equal bargaining power between employers and individual employees</li>
+                <li>Used to challenge legislative attempts to mandate employment terms</li>
+                <li>Continues to influence judicial deference to employer-friendly arbitration agreements</li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The Supreme Court&#39;s decisions in cases like <em>Adair v. United States</em> (1908) and <em>Coppage v.
+                Kansas</em> (1915) during the Lochner era directly invoked freedom of contract to strike down laws
+              protecting workers&#39; rights to organize. Although these specific precedents were later eroded by New
+              Deal legislation, the broader ideological underpinnings of freedom of contract have proven resilient. The
+              Court&#39;s more recent jurisprudence favoring mandatory arbitration agreements reflects a deference to
+              contractual arrangements even when they are imposed on employees on a &#34;take it or leave it&#34; basis
+              with little real negotiation.
+            </p>
+          </div>
+        </div>
+
+        <div id="missed-opportunities" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">6.5 Missed Legislative Opportunities to
+            Strengthen Worker Protections</h3>
+
+          <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Throughout the latter half of the 20th century and into the 21st, several <strong>critical legislative
+                opportunities to strengthen worker protections and potentially curb the excesses of the at-will
+                employment regime were missed</strong>, contributing to the current landscape of diminished job
+              security.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                <h4 class="font-semibold text-red-900 mb-2">Failed Labor Law Reform Act (1978)</h4>
+                <p class="text-red-800 text-sm">Aimed to expedite union elections and strengthen remedies against
+                  employer interference, but failed to overcome Senate filibuster</p>
+              </div>
+              <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                <h4 class="font-semibold text-orange-900 mb-2">Striker Replacement Bills (1993-94)</h4>
+                <p class="text-orange-800 text-sm">Proposed banning permanent replacement of striking workers, but faced
+                  strong business opposition</p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-900 mb-2">PRO Act (2020-21)</h4>
+                <p class="text-blue-800 text-sm">Comprehensive labor law reform passed House but repeatedly stalled in
+                  Senate</p>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-900 mb-2">Unjust Dismissal Legislation</h4>
+                <p class="text-gray-800 text-sm">Multiple attempts to establish federal &#34;just cause&#34; standard
+                  all failed</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Each of these missed legislative chances represents a fork in the road where the U.S. could have chosen a
+              path towards greater worker empowerment and job security, but instead, the status quo of employer
+              dominance and at-will employment was reinforced. The cumulative effect of these failures has been a
+              continued erosion of worker protections and a legal framework that lags behind international standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Policy Recommendations -->
+    <section id="policy-recommendations" class="bg-gray-50 py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">7. Policy Recommendations: Rebalancing Labor
+          Relations and Restoring Worker Protections</h2>
+
+        <div id="just-cause-legislation" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">7.1 Federal Just-Cause Legislation and
+            Strengthening the NLRA</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              To address the fundamental imbalance in U.S. labor relations and provide meaningful job security,
+              <strong>Congress should enact federal legislation establishing a &#34;just cause&#34; standard for all
+                employee dismissals</strong>. This would replace the default at-will employment rule, requiring
+              employers to demonstrate a legitimate, job-related reason (such as poor performance, misconduct, or
+              genuine economic necessity) for terminating an employee, and to follow fair and transparent procedures.
+            </p>
+
+            <div class="bg-green-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-green-900 mb-3">Key Components of Just-Cause Legislation</h4>
+              <ul class="list-disc list-inside space-y-2 text-green-800">
+                <li>Clear definition of &#34;just cause&#34; drawing from established labor arbitration principles</li>
+                <li>Burden of proof on employer to demonstrate legitimate reason for dismissal</li>
+                <li>Requirement for fair and transparent procedures</li>
+                <li>Robust enforcement mechanisms and remedies (reinstatement, back pay)</li>
+                <li>Protection against retaliation for exercising rights</li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Concurrently, the <strong>National Labor Relations Act (NLRA) must be significantly strengthened</strong>
+              to protect workers&#39; rights to organize and bargain collectively. This includes imposing stricter
+              penalties on employers who engage in unfair labor practices (such as firing workers for union activity),
+              streamlining the union certification process, facilitating first-contract negotiations, and prohibiting
+              the permanent replacement of striking workers. These reforms would help rebuild worker power and ensure
+              that collective bargaining can effectively establish fair terms and conditions of employment.
+            </p>
+          </div>
+        </div>
+
+        <div id="arbitration-reform" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">7.2 Reforming Arbitration Practices and
+            Banning Coercive Non-Compete Agreements</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The widespread use of mandatory arbitration clauses and class action waivers has severely undermined
+              workers&#39; access to justice. <strong>Legislation is needed to reform arbitration practices in
+                employment disputes</strong>. This should include banning pre-dispute mandatory arbitration agreements
+              for statutory employment claims (such as discrimination, harassment, and wage theft) and prohibiting class
+              action waivers.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-3">Arbitration Reform</h4>
+                <ul class="list-disc list-inside space-y-1 text-blue-800 text-sm">
+                  <li>Ban pre-dispute mandatory arbitration</li>
+                  <li>Prohibit class action waivers</li>
+                  <li>Ensure true voluntariness if used</li>
+                  <li>Require transparency and due process</li>
+                  <li>Provide for meaningful judicial review</li>
+                </ul>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-900 mb-3">Non-Compete Reform</h4>
+                <ul class="list-disc list-inside space-y-1 text-purple-800 text-sm">
+                  <li>Federal ban on coercive non-competes</li>
+                  <li>Protection for low-wage workers</li>
+                  <li>Narrow tailoring requirements</li>
+                  <li>Adequate consideration standards</li>
+                  <li>Enforcement of FTC proposed rule</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              Furthermore, <strong>coercive non-compete agreements, particularly those imposed on low-wage and
+                middle-wage workers who lack access to trade secrets or specialized client relationships, should be
+                banned at the federal level</strong>. The <a
+                href="https://www.wtwco.com/en-in/insights/2023/01/united-states-proposals-to-end-noncompete-clauses-in-the-us-at-will-employment-in-new-york-city"
+                class="citation">Federal Trade Commission&#39;s (FTC) proposed rule to ban most non-competes</a> is a
+              step in the right direction and should be finalized and robustly enforced.
+            </p>
+          </div>
+        </div>
+
+        <div id="expanding-coverage" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">7.3 Expanding Coverage and Protections for
+            Excluded Worker Groups</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The historical exclusions of agricultural workers, domestic workers, and certain public sector employees
+              from key labor protections have created significant vulnerabilities and inequities in the U.S. labor
+              market. <strong>Federal labor laws, including the NLRA and the FLSA, must be amended to extend full
+                coverage and protections to these historically marginalized groups</strong>.
+            </p>
+
+            <div class="bg-amber-50 p-6 rounded-lg my-6">
+              <h4 class="font-semibold text-amber-900 mb-3">Coverage Expansion Priorities</h4>
+              <ul class="list-disc list-inside space-y-2 text-amber-800">
+                <li><strong>Agricultural Workers:</strong> Full NLRA and FLSA coverage, right to organize and overtime
+                  pay</li>
+                <li><strong>Domestic Workers:</strong> Equal protection under labor laws and collective bargaining
+                  rights</li>
+                <li><strong>Public Sector:</strong> Federal baseline standards for collective bargaining rights</li>
+                <li><strong>Misclassified Workers:</strong> Stronger enforcement against employee misclassification</li>
+                <li><strong>Gig Economy:</strong> Clear definitions ensuring platform workers receive full protections
+                </li>
+              </ul>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              This means ensuring that farmworkers and domestic workers have the unequivocal right to organize, bargain
+              collectively, receive minimum wage and overtime pay, and benefit from health and safety protections on par
+              with other workers. For public sector employees, federal legislation should establish baseline standards
+              for collective bargaining rights and ensure that all public servants, including those in states with
+              restrictive laws, can exercise their fundamental labor rights.
+            </p>
+          </div>
+        </div>
+
+        <div id="international-standards" class="mb-12">
+          <h3 class="font-serif text-2xl font-semibold text-gray-800 mb-6">7.4 Drawing Lessons from International Labor
+            Standards</h3>
+
+          <div class="bg-white rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+            <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/4933e8400d4ce6c1ddf31c74deed4221f16058f8.jpg"
+              alt="Professional meeting in a European parliament chamber"
+              class="w-full h-48 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo"
+              query="European parliament session" referrerpolicy="no-referrer" data-modified="1"
+              data-score="11599.00" />
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The United States lags significantly behind other developed nations in terms of worker protections and job
+              security. <strong>Policymakers should actively study and draw lessons from international labor standards
+                and the practices of countries with stronger worker rights</strong>. This includes examining the
+              &#34;just cause&#34; dismissal regimes prevalent in most OECD countries, which place the burden on
+              employers to justify terminations and provide robust procedural safeguards.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-900 mb-3">European Models</h4>
+                <ul class="list-disc list-inside space-y-1 text-green-800 text-sm">
+                  <li>Germany: Social justification requirements</li>
+                  <li>France: Strict dismissal procedures</li>
+                  <li>UK: Fair reason and fair process</li>
+                  <li>Sweden: &#34;Last in, first out&#34; principles</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-3">Additional Protections</h4>
+                <ul class="list-disc list-inside space-y-1 text-blue-800 text-sm">
+                  <li>Mandated paid family leave</li>
+                  <li>Sectoral bargaining systems</li>
+                  <li>Stronger unemployment benefits</li>
+                  <li>Worker representation on boards</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The U.S. should also consider adopting policies like <strong>mandated paid family and sick leave</strong>,
+              which are standard in nearly all other OECD nations but absent at the federal level in the U.S.
+              Furthermore, exploring models of <strong>sectoral bargaining</strong>, where wages and working conditions
+              are negotiated across entire industries rather than just at the enterprise level, could help raise
+              standards for all workers and reduce income inequality. International conventions of the International
+              Labour Organization (ILO) provide important benchmarks that the U.S. should strive to meet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Sources -->
+    <section id="sources" class="bg-white py-16">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <h2 class="font-serif text-4xl font-bold text-gray-900 mb-8">8. Sources and Evidence</h2>
+
+        <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+          <h3 class="font-serif text-xl font-semibold text-gray-800 mb-4">Primary Legal and Legislative Documents</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>National Labor Relations Act (NLRA) of 1935 (Wagner Act)</li>
+            <li>Fair Labor Standards Act (FLSA) of 1938</li>
+            <li>Labor Management Relations Act of 1947 (Taft-Hartley Act)</li>
+            <li>Relevant U.S. Supreme Court decisions: <em>Lochner v. New York</em> (1905), <em>Adair v. United
+                States</em> (1908), <em>Coppage v. Kansas</em> (1915), <em>Gilmer v. Interstate/Johnson Lane Corp.</em>
+              (1991), <em>Epic Systems Corp. v. Lewis</em> (2018)</li>
+            <li>Thirteenth Amendment to the U.S. Constitution (1865)</li>
+            <li>Federal Arbitration Act (FAA) of 1925</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+          <h3 class="font-serif text-xl font-semibold text-gray-800 mb-4">Secondary Scholarly Analyses and Historical
+            Data</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Historical analyses of labor law and the labor movement</li>
+            <li>Economic data and analyses from National Bureau of Economic Research and Bureau of Labor Statistics</li>
+            <li>Legal scholarship critiquing at-will employment doctrine and mandatory arbitration</li>
+            <li>Reports from legal advocacy groups: National Employment Law Project (NELP), Economic Policy Institute
+              (EPI)</li>
+            <li>Historical accounts of labor movement&#39;s internal dynamics and exclusions</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-6 mb-6 border border-gray-200 shadow-sm">
+          <h3 class="font-serif text-xl font-semibold text-gray-800 mb-4">Contemporary Reports and Indices on Labor
+            Rights</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Oxfam 2023 report: &#34;Where Hard Work Doesn&#39;t Pay Off&#34; - OECD labor-protection index</li>
+            <li>Oxfam America &#34;Best States to Work in the US&#34; index (2024)</li>
+            <li>Commitment to Reducing Inequality Index (CRII) 2024</li>
+            <li>National Bureau of Economic Research union density statistics</li>
+            <li>Federalist Society analysis of union membership and industrial strife</li>
+          </ul>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+          <p class="text-blue-800 italic">
+            This comprehensive analysis draws from primary legal documents, scholarly research, and contemporary data to
+            provide a thorough examination of the historical, legal, and political factors that have shaped the current
+            landscape of U.S. labor relations and the persistence of the at-will employment doctrine.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Diagram -->
+    <section class="bg-gray-50 py-16">
+      <div class="container mx-auto px-8 max-w-6xl">
+        <h2 class="font-serif text-3xl font-bold text-gray-900 mb-8 text-center">Historical Timeline: From Worker
+          Protections to At-Will Employment</h2>
+
+        <div class="mermaid-container">
+          <div class="mermaid-controls">
+            <button class="mermaid-control-btn zoom-in" title="放大">
+              <i class="fas fa-search-plus"></i>
+            </button>
+            <button class="mermaid-control-btn zoom-out" title="缩小">
+              <i class="fas fa-search-minus"></i>
+            </button>
+            <button class="mermaid-control-btn reset-zoom" title="重置">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </button>
+            <button class="mermaid-control-btn fullscreen" title="全屏查看">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+          <div class="mermaid" id="timeline-diagram">
+            timeline
+            title &#34;Evolution of U.S. Labor Law and Worker Protections&#34;
+
+            &#34;Late 19th Century&#34; : &#34;Judicial invention of at-will employment&#34;
+            : &#34;Horace Wood&#39;s 1877 treatise&#34;
+            : &#34;Thirteenth Amendment interpretations&#34;
+
+            &#34;Lochner Era (1897-1937)&#34; : &#34;\&#34;Freedom of contract\&#34; doctrine&#34;
+            : &#34;Adair v. United States (1908)&#34;
+            : &#34;Coppage v. Kansas (1915)&#34;
+            : &#34;Judicial resistance to labor protections&#34;
+
+            &#34;New Deal (1930s)&#34; : &#34;Wagner Act (1935)&#34;
+            : &#34;Social Security Act (1935)&#34;
+            : &#34;Fair Labor Standards Act (1938)&#34;
+            : &#34;Creation of NLRB&#34;
+            : &#34;Golden Age of union strength (35% density)&#34;
+
+            &#34;Post-War (1947)&#34; : &#34;Taft-Hartley Act&#34;
+            : &#34;Right-to-work provisions&#34;
+            : &#34;Employer free speech clause&#34;
+            : &#34;Beginning of union decline&#34;
+
+            &#34;1970s-1980s&#34; : &#34;Critical turning point for unions&#34;
+            : &#34;Increased employer resistance&#34;
+            : &#34;Union election success rate drops below 50%&#34;
+            : &#34;Offshoring and deindustrialization&#34;
+
+            &#34;1990s-2000s&#34; : &#34;Gilmer v. Interstate (1991)&#34;
+            : &#34;Mandatory arbitration expansion&#34;
+            : &#34;Epic Systems v. Lewis (2018)&#34;
+            : &#34;Class action waivers upheld&#34;
+            : &#34;Non-compete proliferation&#34;
+
+            &#34;2020s&#34; : &#34;6% private sector union density&#34;
+            : &#34;74%+ at-will employment rate&#34;
+            : &#34;U.S. ranks 32/38 in OECD labor protections&#34;
+            : &#34;Calls for just-cause legislation&#34;
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-8 max-w-4xl">
+        <div class="text-center">
+          <p class="text-gray-400">
+            This analysis examines the historical, legal, and political factors that have shaped the transition from
+            mid-20th century worker protections to today&#39;s at-will employment regime in the United States.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Initialize Mermaid
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#1e40af',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#1e3a8a',
+        lineColor: '#64748b',
+        sectionBkgColor: '#f8fafc',
+        altSectionBkgColor: '#ffffff',
+        gridColor: '#e2e8f0',
+        tertiaryColor: '#f1f5f9',
+        background: '#ffffff',
+        mainBkg: '#1e40af',
+        secondBkg: '#3b82f6',
+        tertiaryBkg: '#f59e0b'
+      },
+      timeline: {
+        numberSectionStyles: 4,
+        axisFormat: '%Y',
+        tickInterval: '10year'
+      },
+      fontFamily: 'Inter, sans-serif'
+    });
+
+    // Initialize Mermaid Controls for zoom and pan
+    function initializeMermaidControls() {
+      const containers = document.querySelectorAll('.mermaid-container');
+
+      containers.forEach(container => {
+        const mermaidElement = container.querySelector('.mermaid');
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+
+        // 触摸相关状态
+        let isTouch = false;
+        let touchStartTime = 0;
+        let initialDistance = 0;
+        let initialScale = 1;
+        let isPinching = false;
+
+        // Zoom controls
+        const zoomInBtn = container.querySelector('.zoom-in');
+        const zoomOutBtn = container.querySelector('.zoom-out');
+        const resetBtn = container.querySelector('.reset-zoom');
+        const fullscreenBtn = container.querySelector('.fullscreen');
+
+        function updateTransform() {
+          mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+          if (scale > 1) {
+            container.classList.add('zoomed');
+          } else {
+            container.classList.remove('zoomed');
+          }
+
+          mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+        }
+
+        if (zoomInBtn) {
+          zoomInBtn.addEventListener('click', () => {
+            scale = Math.min(scale * 1.25, 4);
+            updateTransform();
+          });
+        }
+
+        if (zoomOutBtn) {
+          zoomOutBtn.addEventListener('click', () => {
+            scale = Math.max(scale / 1.25, 0.3);
+            if (scale <= 1) {
+              translateX = 0;
+              translateY = 0;
+            }
+            updateTransform();
+          });
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
+          });
+        }
+
+        if (fullscreenBtn) {
+          fullscreenBtn.addEventListener('click', () => {
+            if (container.requestFullscreen) {
+              container.requestFullscreen();
+            } else if (container.webkitRequestFullscreen) {
+              container.webkitRequestFullscreen();
+            } else if (container.msRequestFullscreen) {
+              container.msRequestFullscreen();
+            }
+          });
+        }
+
+        // Mouse Events
+        mermaidElement.addEventListener('mousedown', (e) => {
+          if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+          isDragging = true;
+          startX = e.clientX - translateX;
+          startY = e.clientY - translateY;
+          mermaidElement.style.cursor = 'grabbing';
+          updateTransform();
+          e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (isDragging && !isTouch) {
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateTransform();
+          }
+        });
+
+        document.addEventListener('mouseup', () => {
+          if (isDragging && !isTouch) {
+            isDragging = false;
+            mermaidElement.style.cursor = 'grab';
+            updateTransform();
+          }
+        });
+
+        document.addEventListener('mouseleave', () => {
+          if (isDragging && !isTouch) {
+            isDragging = false;
+            mermaidElement.style.cursor = 'grab';
+            updateTransform();
+          }
+        });
+
+        // 获取两点之间的距离
+        function getTouchDistance(touch1, touch2) {
+          return Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+        }
+
+        // Touch Events - 触摸事件处理
+        mermaidElement.addEventListener('touchstart', (e) => {
+          isTouch = true;
+          touchStartTime = Date.now();
+
+          if (e.touches.length === 1) {
+            // 单指拖动
+            isPinching = false;
+            isDragging = true;
+
+            const touch = e.touches[0];
+            startX = touch.clientX - translateX;
+            startY = touch.clientY - translateY;
+
+          } else if (e.touches.length === 2) {
+            // 双指缩放
+            isPinching = true;
+            isDragging = false;
+
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            initialDistance = getTouchDistance(touch1, touch2);
+            initialScale = scale;
+          }
+
+          e.preventDefault();
+        }, { passive: false });
+
+        mermaidElement.addEventListener('touchmove', (e) => {
+          if (e.touches.length === 1 && isDragging && !isPinching) {
+            // 单指拖动
+            const touch = e.touches[0];
+            translateX = touch.clientX - startX;
+            translateY = touch.clientY - startY;
+            updateTransform();
+
+          } else if (e.touches.length === 2 && isPinching) {
+            // 双指缩放
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            const currentDistance = getTouchDistance(touch1, touch2);
+
+            if (initialDistance > 0) {
+              const newScale = Math.min(Math.max(
+                initialScale * (currentDistance / initialDistance),
+                0.3
+              ), 4);
+              scale = newScale;
+              updateTransform();
+            }
+          }
+
+          e.preventDefault();
+        }, { passive: false });
+
+        mermaidElement.addEventListener('touchend', (e) => {
+          // 重置状态
+          if (e.touches.length === 0) {
+            isDragging = false;
+            isPinching = false;
+            initialDistance = 0;
+
+            // 延迟重置isTouch，避免鼠标事件立即触发
+            setTimeout(() => {
+              isTouch = false;
+            }, 100);
+          } else if (e.touches.length === 1 && isPinching) {
+            // 从双指变为单指，切换为拖动模式
+            isPinching = false;
+            isDragging = true;
+
+            const touch = e.touches[0];
+            startX = touch.clientX - translateX;
+            startY = touch.clientY - translateY;
+          }
+
+          updateTransform();
+        });
+
+        mermaidElement.addEventListener('touchcancel', (e) => {
+          isDragging = false;
+          isPinching = false;
+          initialDistance = 0;
+
+          setTimeout(() => {
+            isTouch = false;
+          }, 100);
+
+          updateTransform();
+        });
+
+        // Enhanced wheel zoom with better center point handling
+        container.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          const rect = container.getBoundingClientRect();
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const delta = e.deltaY > 0 ? 0.9 : 1.1;
+          const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+          // Adjust translation to zoom towards center
+          if (newScale !== scale) {
+            const scaleDiff = newScale / scale;
+            translateX = translateX * scaleDiff;
+            translateY = translateY * scaleDiff;
+            scale = newScale;
+
+            if (scale <= 1) {
+              translateX = 0;
+              translateY = 0;
+            }
+
+            updateTransform();
+          }
+        });
+
+        // Initialize display
+        updateTransform();
+      });
+    }
+
+    // Initialize mermaid controls after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      initializeMermaidControls();
+    });
+
+    // Table of Contents functionality
+    function updateTOC() {
+      const sections = document.querySelectorAll('section[id], div[id]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      let currentSection = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          currentSection = section.id;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Smooth scrolling for TOC links
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop - 20;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update TOC on scroll
+    window.addEventListener('scroll', updateTOC);
+
+    // Initial TOC update
+    updateTOC();
+
+    // Mobile TOC toggle
+    function toggleTOC() {
+      const toc = document.querySelector('.toc-fixed');
+      toc.classList.toggle('open');
+
+      const overlay = document.getElementById('toc-overlay');
+      const body = document.body;
+
+      if (toc.classList.contains('open')) {
+        overlay.classList.add('active');
+        body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.remove('active');
+        body.style.overflow = '';
+      }
+    }
+
+    // Close TOC when clicking outside or on overlay
+    document.addEventListener('click', function (e) {
+      const toc = document.querySelector('.toc-fixed');
+      const toggleBtn = document.querySelector('button[onclick="toggleTOC()"]');
+      const overlay = document.getElementById('toc-overlay');
+
+      if (toc.classList.contains('open') &&
+        !toc.contains(e.target) &&
+        !toggleBtn.contains(e.target)) {
+        toc.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Handle overlay click
+    document.getElementById('toc-overlay').addEventListener('click', function () {
+      const toc = document.querySelector('.toc-fixed');
+      toc.classList.remove('open');
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Close TOC when clicking on TOC links (mobile)
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 1024) {
+          const toc = document.querySelector('.toc-fixed');
+          const overlay = document.getElementById('toc-overlay');
+          toc.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Handle window resize
+    function handleResize() {
+      const toc = document.querySelector('.toc-fixed');
+      const overlay = document.getElementById('toc-overlay');
+
+      if (window.innerWidth > 1024) {
+        // On desktop: ensure TOC is visible and reset overlay/mobile states
+        toc.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        // On mobile: if TOC was open, show overlay to prevent body scroll
+        if (toc.classList.contains('open')) {
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+  </script>
+
+
+</body>
+
+</html>
